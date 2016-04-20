@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ProductManager</string>
+    <string name="insert_product_title">Cadastro de produto</string>
+    <string name="insert_product">Cadastrar</string>
+</resources>
