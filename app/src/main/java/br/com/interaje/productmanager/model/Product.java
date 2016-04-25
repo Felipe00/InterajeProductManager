@@ -1,9 +1,11 @@
 package br.com.interaje.productmanager.model;
 
+import java.io.Serializable;
+
 /**
  * Created by rayquaza on 15/04/16.
  */
-public class Product {
+public class Product implements Serializable {
 
     private Long id;
     private String name;

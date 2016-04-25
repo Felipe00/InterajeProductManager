@@ -9,8 +9,16 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="br.com.interaje.productmanager.MainActivity">
 
+    <Button
+        android:onClick="newProduct"
+        android:text="@string/new_product"
+        android:id="@+id/newProductButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <ListView
         android:id="@+id/productList"
+        android:layout_below="@+id/newProductButton"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></ListView>
 
