@@ -4,4 +4,9 @@
     <string name="insert_product">Cadastrar</string>
     <string name="greenButton">Botão Verde</string>
     <string name="new_product">Novo produto</string>
+    <string name="success_register">Cadastrado com sucesso!</string>
+    <string name="fail_register">Não foi possível cadastrar o produto :(</string>
+    <string name="product_category">Categoria do produto</string>
+    <string name="product_price">Preço do produto</string>
+    <string name="product_name">Nome do produto</string>
 </resources>

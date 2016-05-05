@@ -1,12 +1,23 @@
-package br.com.interaje.productmanager.model;
+package br.com.interaje.productmanager.models;
+
+import com.orm.SugarRecord;
+
+import java.io.Serializable;
 
 /**
  * Created by rayquaza on 15/04/16.
  */
-public class Category {
+public class Category extends SugarRecord implements Serializable {
 
     private Long id;
     private String name;
+    //private String something;
+
+    public Category() {}
+
+    public Category(String name) {
+        this.name = name;
+    }
 
     public Long getId() {
         return id;

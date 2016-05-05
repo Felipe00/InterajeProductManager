@@ -1,4 +1,4 @@
-package br.com.interaje.productmanager;
+package br.com.interaje.productmanager.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,17 +6,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import br.com.interaje.productmanager.DbUtilsProduct.StaticListProduct;
-import br.com.interaje.productmanager.model.Product;
+import br.com.interaje.productmanager.R;
+import br.com.interaje.productmanager.adapters.ProductAdapter;
+import br.com.interaje.productmanager.models.Product;
 
 public class MainActivity extends AppCompatActivity {
 
     private ListView productList;
+    private List<Product> products;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         productList = (ListView) findViewById(R.id.productList);
 
-        final List<Product> products = StaticListProduct.productList;
+        products = getProductList();
 
         ProductAdapter adapter = new ProductAdapter(this, products);
 
@@ -34,18 +34,11 @@ public class MainActivity extends AppCompatActivity {
         productList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                TextView name = (TextView) view.findViewById(R.id.productName);
-                TextView price = (TextView) view.findViewById(R.id.productPrice);
-
-                //Convertendo para numeral
-                Double valuePrice = Double.parseDouble(price.getText().toString());
+                Product item = products.get(position);
 
                 Intent intent = new Intent(MainActivity.this, InsertActivity.class);
 
-                //intent.putExtra("product", product);
-                intent.putExtra("productId", id);
-                intent.putExtra("productName", name.getText().toString());
-                intent.putExtra("productPrice", valuePrice);
+                intent.putExtra("product", item);
 
                 startActivity(intent);
                 finish();
@@ -57,23 +50,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void newProduct(View v) {
         startActivity(new Intent(this, InsertActivity.class));
+        finish();
     }
 
     // Lista fictícia.
     private List<Product> getProductList() {
-        List<Product> list = new ArrayList<>();
-        Product product = new Product();
-
-        product.setId(1l);
-        product.setName("Biscoito");
-        product.setPrice(1.50);
-        list.add(product);
-
-        product = new Product();
-        product.setId(2l);
-        product.setName("Arroz");
-        product.setPrice(4.00);
-        list.add(product);
+        List<Product> list = Product.listAll(Product.class);
 
         return list;
     }

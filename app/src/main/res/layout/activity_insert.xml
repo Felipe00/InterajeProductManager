@@ -7,25 +7,26 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="br.com.interaje.productmanager.InsertActivity">
+    tools:context=".activities.InsertActivity">
 
     <EditText
-        android:hint="Nome do produto"
+        android:hint="@string/product_name"
         android:id="@+id/productName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp" />
 
     <EditText
-        android:hint="Preço do produto"
+        android:hint="@string/product_price"
         android:id="@+id/productPrice"
+        android:inputType="numberDecimal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/productName"
         android:layout_marginTop="16dp" />
 
     <EditText
-        android:hint="Categoria do produto"
+        android:hint="@string/product_category"
         android:id="@+id/productCategory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

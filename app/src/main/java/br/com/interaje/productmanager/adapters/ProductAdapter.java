@@ -1,4 +1,4 @@
-package br.com.interaje.productmanager;
+package br.com.interaje.productmanager.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,7 +9,9 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import br.com.interaje.productmanager.model.Product;
+import br.com.interaje.productmanager.R;
+import br.com.interaje.productmanager.models.Category;
+import br.com.interaje.productmanager.models.Product;
 
 /**
  * Created by rayquaza on 20/04/16.
@@ -45,9 +47,12 @@ public class ProductAdapter extends BaseAdapter {
 
         TextView productName = (TextView) view.findViewById(R.id.productName);
         TextView productPrice = (TextView) view.findViewById(R.id.productPrice);
+        TextView categoryName = (TextView) view.findViewById(R.id.categoryName);
 
         productName.setText(products.get(position).getName());
         productPrice.setText(String.valueOf(products.get(position).getPrice()));
+        Category category = products.get(position).getCategory();
+        categoryName.setText(category != null ? category.getName() : "");
 
         return view;
     }
