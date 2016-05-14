@@ -9,22 +9,17 @@ import java.io.Serializable;
  */
 public class Category extends SugarRecord implements Serializable {
 
-    private Long id;
+    public static final String COLUMN_NAME = "name";
+    public static final String COLUMN_ID = "_id";
+    public static final String TALBE_NAME = "category";
+
+    private Long mId;
     private String name;
-    //private String something;
 
     public Category() {}
 
     public Category(String name) {
         this.name = name;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -33,5 +28,13 @@ public class Category extends SugarRecord implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Long getmId() {
+        return mId;
+    }
+
+    public void setmId(Long mId) {
+        this.mId = mId;
     }
 }

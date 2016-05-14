@@ -9,4 +9,5 @@
     <string name="product_category">Categoria do produto</string>
     <string name="product_price">Preço do produto</string>
     <string name="product_name">Nome do produto</string>
+    <string name="confirm_btn_login">Acessar</string>
 </resources>
